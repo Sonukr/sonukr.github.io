@@ -12,7 +12,6 @@ var app = angular.module('Portfolio', ['ngRoute']);
 app.controller('PortFolioCtrl', function($scope){
 
 });
-// for play video over his own url. :)
 
 
 //========================      Jquery     =======================================
