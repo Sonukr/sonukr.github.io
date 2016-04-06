@@ -18,8 +18,8 @@ app.get("/", function(request, response) {
 });
 
 // for preventing dyno to sleeping  in every 3 minutes (180000)
-setInterval(function() {
-    http.get("http://sonukr.herokuapp.com");
-}, 180000);
+// setInterval(function() {
+//     http.get("http://sonukr.herokuapp.com");
+// }, 180000);
 
 app.listen(port);
