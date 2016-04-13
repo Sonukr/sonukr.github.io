@@ -1,7 +1,7 @@
 {
-  "name": "Web Application Manifest Sample",
-  
+  "name": "Sonurr",
+
   "start_url": "index.html",
   "display": "standalone",
-  "orientation": "landscape"
+  "orientation": "portrait"
 }
