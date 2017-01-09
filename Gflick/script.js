@@ -26,10 +26,11 @@ app.controller("flicker", function($http,$scope,$scope, $log, $timeout,$anchorSc
     $scope.next = function(){
         page++;
         var url = base + api_key +'&per_page=50&page='+page+'&format=json&nojsoncallback=1&lat='+ lat +'&lon=' + lon ;
-        //$log.log(url);
+        $log.log(url);
         $http.get(url).success(function(data){
            $scope.photos = data.photos.photo;
            $scope.pages = data.photos.pages;
+           $log.log(data);
             $('.photo').animate().scrollLeft(0);
         });
     },
@@ -55,16 +56,17 @@ app.controller("flicker", function($http,$scope,$scope, $log, $timeout,$anchorSc
          //$log.log('marker dragend');
          var lat = marker.getPosition().lat(); //check for latest lat
          var lon = marker.getPosition().lng(); //check for latest long
-         //$log.log(lat);
-         //$log.log(lon);
+         $log.log(lat);
+         $log.log(lon);
 
          //Update url based on lat lang
          var url = base + api_key +'&per_page=50&page='+page+'&format=json&nojsoncallback=1&lat='+ lat +'&lon=' + lon ;
-        //  $log.log(url);
+         $log.log(url);
 
         //  again fetch images with updated lat lang
          $http.get(url).success(function(data){
               $scope.photos = data.photos.photo;
+              $log.log(data)
          });
 
         // for enable draging marker from one pplace to another and some other class
