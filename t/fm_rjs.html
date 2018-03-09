@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+    <link href="../stylesheets/folio_style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+    </nav>
+    <div class="container">
+        <div class="embed-responsive embed-responsive-21by9">
+            <video  class="embed-responsive-item" src="" controls autoplay></video>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <ul class="list-group" id="list">
+                </ul>   
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        let cn = 'frontendmasters React.js (with Introduction to Flux Architecture)';
+        let h = 'https://vs1.coursehunters.net';
+        let c = '/fm-complete-react/';
+        let l = 'lesson';
+        let lc = '1';
+        let f = '.mp4';
+        var video = h+c+l+lc+f;
+        $('.navbar-brand').text(cn?cn:'Hey There')
+        $('video ').attr('src', video);
+            for(i=1; i<=73; i++){
+                var name = 'lesson'+ i ;
+                var url = h+c+l+i+f;
+            $('#list').append(
+                "<li class='list-group-item'>"+"<span class='list-span'>"+ name+ "</span>"+ "<a href=" + url + " class='float-right' download>Download</a>"+"</li>"
+            );      
+        }   
+        $('.list-group-item span').click(function(e){
+            var lesson = e.target.innerHTML;
+            var video = h+c+lesson+f;
+                console.log(lesson);
+            $('video ').attr('src', video);
+            $("video")[0].load();
+        });
+        
+        $('video').on('ended',function(){
+            var v_curl = h+c+l;
+            var v_id = $('video')[0].src[v_curl.length];
+            var v_id = parseFloat(v_id)+1;
+            $('video ').attr('src', v_curl+v_id+f);
+            $("video")[0].load();
+        });  
+    });
+</script>
+</html>

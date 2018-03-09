@@ -246,3 +246,22 @@ hr.small {
 footer {
     padding: 100px 0;
 }
+
+
+.navbar-light{
+    margin-bottom: 12px;
+}
+video{
+
+    padding-bottom: 12px;
+}
+li{
+    cursor: pointer;
+}
+.list-span{
+    display: inline-flex;
+    width: 85%;
+}
+.list-span:hover{
+    background-color:rgba(228, 187, 7, 0.767);
+}
